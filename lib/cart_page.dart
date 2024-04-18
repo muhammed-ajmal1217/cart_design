@@ -14,7 +14,6 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  int quantity = 0;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -34,11 +33,11 @@ class _CartPageState extends State<CartPage> {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  height: size.height * 0.16,
+                  height: size.height * 0.17,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 21, 60, 71),
+                    color: const Color.fromARGB(255, 21, 60, 71),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -58,7 +57,7 @@ class _CartPageState extends State<CartPage> {
                                     image: AssetImage(images[index])),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Column(
@@ -82,17 +81,16 @@ class _CartPageState extends State<CartPage> {
                                   allowHalfRating: true,
                                   itemCount: 5,
                                   itemPadding:
-                                      EdgeInsets.symmetric(horizontal: 2.0),
-                                  itemBuilder: (context, _) => Icon(
+                                      const EdgeInsets.symmetric(horizontal: 2.0),
+                                  itemBuilder: (context, _) => const Icon(
                                     Icons.star,
                                     color: Colors.amber,
                                     size: 10,
                                   ),
                                   onRatingUpdate: (rating) {
-                                    print(rating);
                                   },
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 5,
                                 ),
                                 Container(
@@ -100,7 +98,7 @@ class _CartPageState extends State<CartPage> {
                                   width: 60,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
-                                    color: Color.fromARGB(255, 24, 78, 86),
+                                    color: const Color.fromARGB(255, 24, 78, 86),
                                   ),
                                   child: Row(
                                     crossAxisAlignment:
@@ -111,20 +109,20 @@ class _CartPageState extends State<CartPage> {
                                       InkWell(
                                         onTap: () {
                                           setState(() {
-                                            quantity++;
+                                            quantity[index]++;
                                           });
                                         },
                                         child: Container(
                                           height: 20,
                                           width: 20,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                               color: Color.fromARGB(
                                                   255, 30, 91, 101),
                                               borderRadius: BorderRadius.only(
                                                   topLeft: Radius.circular(5),
                                                   bottomLeft:
                                                       Radius.circular(5))),
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.add,
                                             color: Colors.white,
                                             size: 15,
@@ -132,29 +130,29 @@ class _CartPageState extends State<CartPage> {
                                         ),
                                       ),
                                       Text(
-                                        '$quantity',
+                                        '${quantity[index]}',
                                         style: GoogleFonts.montserrat(
                                             color: Colors.white),
                                       ),
                                       InkWell(
                                         onTap: () {
                                           setState(() {
-                                            quantity++;
+                                            quantity[index]--;
                                           });
                                         },
                                         child: Container(
                                           height: 20,
                                           width: 20,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                               color: Color.fromARGB(
                                                   255, 30, 91, 101),
                                               borderRadius: BorderRadius.only(
                                                   topRight: Radius.circular(5),
                                                   bottomRight:
                                                       Radius.circular(5))),
-                                          child: Padding(
+                                          child: const Padding(
                                             padding:
-                                                const EdgeInsets.only(bottom: 8),
+                                                EdgeInsets.only(bottom: 8),
                                             child: Icon(
                                               Icons.minimize,
                                               color: Colors.white,
@@ -166,14 +164,15 @@ class _CartPageState extends State<CartPage> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 5,
                                 ),
+                                Text('Delivery by ${dates[index]}',style: TextStyle(color: Colors.white),)
                               ],
                             ),
                           ],
                         ),
-                        Align(
+                        const Align(
                             alignment: Alignment.topCenter,
                             child: Icon(
                               Icons.delete,
